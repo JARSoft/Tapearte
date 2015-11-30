@@ -1,9 +1,12 @@
-package com.jarsoft.user.tapearte;
+package com.jarsoft.user.tapearte.Presentacion;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.jarsoft.user.tapearte.Dominio.InterfazInicial;
+import com.jarsoft.user.tapearte.R;
 
 
 public class Tapearte extends Activity {
@@ -12,6 +15,19 @@ public class Tapearte extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tapearte);
+
+        if (null == savedInstanceState) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container, InterfazInicial.newInstance(this))
+                    .commit();
+        }
+//        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
+//        String[] items = new String[]{"Registrarse", "Login", "Ofertas"};
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+//        dropdown.setAdapter(adapter);
+
+
+
     }
 
     @Override

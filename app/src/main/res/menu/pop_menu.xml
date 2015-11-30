@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:id="@+id/one"
+            android:title="Registrarse"/>
+
+        <item
+            android:id="@+id/two"
+            android:title="Inicar Sesion"/>
+
+        <item
+            android:id="@+id/three"
+            android:title="Otra cosa"/>
+</menu>
