@@ -1,13 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
         <item
-            android:id="@+id/one"
+            android:id="@+id/registrarse"
             android:title="Registrarse"/>
 
         <item
-            android:id="@+id/two"
+            android:id="@+id/iniciar_sesion"
             android:title="Inicar Sesion"/>
 
         <item
-            android:id="@+id/three"
+            android:id="@+id/otra_cosa"
             android:title="Otra cosa"/>
 </menu>

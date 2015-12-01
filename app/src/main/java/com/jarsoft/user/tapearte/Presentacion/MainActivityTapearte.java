@@ -1,15 +1,15 @@
 package com.jarsoft.user.tapearte.Presentacion;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.jarsoft.user.tapearte.Dominio.InterfazInicial;
 import com.jarsoft.user.tapearte.R;
 
 
-public class Tapearte extends Activity {
+public class MainActivityTapearte extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,7 @@ public class Tapearte extends Activity {
         setContentView(R.layout.activity_tapearte);
 
         if (null == savedInstanceState) {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.container, InterfazInicial.newInstance(this))
-                    .commit();
+            startActivity(new Intent(this, IU_Movil.class));
         }
 //        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
 //        String[] items = new String[]{"Registrarse", "Login", "Ofertas"};

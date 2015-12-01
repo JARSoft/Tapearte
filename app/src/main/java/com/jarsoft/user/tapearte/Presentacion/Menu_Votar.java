@@ -1,4 +1,4 @@
-package com.jarsoft.user.tapearte.Dominio;
+package com.jarsoft.user.tapearte.Presentacion;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.jarsoft.user.tapearte.R;
 /**
  * Created by user on 29/11/2015.
  */
-public class Votando extends Fragment implements View.OnClickListener  {
+public class Menu_Votar extends Fragment implements View.OnClickListener  {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class Votando extends Fragment implements View.OnClickListener  {
 
 
     public static Fragment newInstance() {
-        Votando fragment = new Votando();
+        Menu_Votar fragment = new Menu_Votar();
         fragment.setRetainInstance(true);
         return fragment;
     }
@@ -46,7 +46,6 @@ public class Votando extends Fragment implements View.OnClickListener  {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button: {
-                System.out.println("boton");
                 getFragmentManager().beginTransaction().hide(this).commit();
                 break;
             }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
-    tools:context=".Presentacion.Tapearte" />
+    tools:context=".Presentacion.MainActivityTapearte" />
 
 <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--xmlns:tools="http://schemas.android.com/tools"-->
@@ -14,7 +14,7 @@
     <!--android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"-->
     <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
     <!--android:paddingTop="@dimen/activity_vertical_margin"-->
-    <!--android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".Presentacion.Tapearte">-->
+    <!--android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".Presentacion.MainActivityTapearte">-->
 
     <!--<FrameLayout-->
         <!--android:layout_width="match_parent"-->
@@ -33,7 +33,7 @@
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:text="Otras opciones"-->
-            <!--android:id="@+id/Opciones"-->
+            <!--android:id="@+id/Menu_Opciones"-->
             <!--android:layout_gravity="left|top" />-->
 
         <!--&lt;!&ndash;<Spinner&ndash;&gt;-->
