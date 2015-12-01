@@ -1,32 +1,35 @@
 package com.jarsoft.user.tapearte.Presentacion;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.jarsoft.user.tapearte.R;
 
 /**
  * Created by user on 29/11/2015.
  */
-public class Menu_Votar extends Fragment implements View.OnClickListener  {
+public class Menu_Votar extends Activity implements View.OnClickListener  {
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.votando, container, false);
-    }
+    private Button introducirCodigo, puntuar, button;
 
-    @Override
-    public void onViewCreated(final View view, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.votando);
 
-        view.findViewById(R.id.introducirCodigo);
-        view.findViewById(R.id.puntuar);
-        view.findViewById(R.id.button).setOnClickListener(this);;
-    }
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+//        introducirCodigo = (Button) findViewById(R.id.introducirCodigo);
+//        puntuar = (Button) findViewById(R.id.puntuar);
+        button = (Button) findViewById(R.id.button);
+
+//        introducirCodigo.setOnClickListener(this);
+//        puntuar.setOnClickListener(this);
+        button.setOnClickListener(this);
+
     }
 
     @Override
@@ -34,19 +37,11 @@ public class Menu_Votar extends Fragment implements View.OnClickListener  {
         super.onPause();
     }
 
-
-    public static Fragment newInstance() {
-        Menu_Votar fragment = new Menu_Votar();
-        fragment.setRetainInstance(true);
-        return fragment;
-    }
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button: {
-                getFragmentManager().beginTransaction().hide(this).commit();
+                finish();
                 break;
             }
         }

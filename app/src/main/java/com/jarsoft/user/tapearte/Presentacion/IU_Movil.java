@@ -56,9 +56,7 @@ public class IU_Movil extends Activity implements View.OnClickListener{
 //                SocketMovil.realizarPeticion(componentes, 0);
 //                System.out.println("Exito!");
 
-                getFragmentManager().beginTransaction().
-                        add(R.id.container, Menu_Votar.newInstance())
-                        .commit();
+               startActivity(new Intent(this, Menu_Votar.class));
 //                getFragmentManager().beginTransaction()
 //                        .replace(R.id.container, Menu_Votar.newInstance())
 //                        .commit();
