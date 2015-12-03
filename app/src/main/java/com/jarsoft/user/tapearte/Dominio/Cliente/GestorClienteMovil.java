@@ -1,5 +1,7 @@
 package com.jarsoft.user.tapearte.Dominio.Cliente;
 
+import com.jarsoft.user.tapearte.Comunicacion.SocketMovil;
+
 import java.util.ArrayList;
 
 public class GestorClienteMovil {
@@ -12,8 +14,7 @@ public class GestorClienteMovil {
 	public boolean autenticar(String usuario, String password) {
 		GestorAutenticarMovil gestorAutenticarMovil = new GestorAutenticarMovil();
 		Usuario user = new Usuario(usuario,password);
-		System.out.println("GestorClienteMovil: "+gestorAutenticarMovil.autenticar(user));
-		return true;
+		return gestorAutenticarMovil.autenticar(user);
 	}
 
 	/**
@@ -23,28 +24,37 @@ public class GestorClienteMovil {
 	 * @param email
 	 */
 	public boolean registrarse(String usuario, String password, String email) {
-		// TODO - implement GestorClienteMovil.registrarse
-		throw new UnsupportedOperationException();
+		Usuario user = new Usuario(usuario, password, email);
+		GestorRegistrar gestorRegistrar = new GestorRegistrar();
+		return gestorRegistrar.registrar(user);
 	}
 
 	/**
 	 * 
-	 * @param idBar
+	 * @param bar
 	 */
-	public ArrayList<Tapa> consultarTapas(int idBar) {
-		// TODO - implement GestorClienteMovil.consultarTapas
-		throw new UnsupportedOperationException();
+	public ArrayList<Tapa> consultarTapas(Bar bar) {
+        GestorConsultarTapas gestorConsultarTapas = new GestorConsultarTapas();
+        return gestorConsultarTapas.consultarTapas(bar);
 	}
 
 	/**
-	 * 
+	 *
 	 * @param idBar
-	 * @param idTapa
+	 * @param codigo
 	 * @param puntuacion
 	 */
-	public boolean votar(int idBar, int idTapa, int puntuacion) {
-		// TODO - implement GestorClienteMovil.votar
-		throw new UnsupportedOperationException();
+	//TODO HE CABIAO COSAS
+	public boolean votar(int idBar, int codigo, float puntuacion) {
+		GestorConsultarTapaPorCodigo gctpc = new GestorConsultarTapaPorCodigo();
+		Tapa tapa = gctpc.consultarTapa(codigo);
+		if(tapa!=null){
+			GestorVotar gestorVotar = new GestorVotar();
+			return gestorVotar.votar(tapa, puntuacion);
+		}
+		else
+			return false;
+
 	}
 
 	/**

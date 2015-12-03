@@ -4,13 +4,23 @@ import java.util.ArrayList;
 
 public class Bar {
 
+	private String nombreBar;
 	private int idBar;
 	private double x;
 	private double y;
 	private ArrayList<Tapa> tapas;
 	private String descripcion;
 
-	public int getIdBar() {
+    public Bar(String nombreBar, int idBar, double x, double y, ArrayList<Tapa> tapas, String descripcion) {
+        this.nombreBar = nombreBar;
+        this.idBar = idBar;
+        this.x = x;
+        this.y = y;
+        this.tapas = tapas;
+        this.descripcion = descripcion;
+    }
+
+    public int getIdBar() {
 		return this.idBar;
 	}
 
@@ -23,8 +33,7 @@ public class Bar {
 	}
 
 	public ArrayList<Tapa> getTapas() {
-		// TODO - implement Bar.getTapas
-		throw new UnsupportedOperationException();
+		return this.tapas;
 	}
 
 	public String getDescripcion() {
@@ -72,4 +81,11 @@ public class Bar {
 		this.descripcion = descripcion;
 	}
 
+	public String getNombreBar() {
+		return nombreBar;
+	}
+
+	public void setNombreBar(String nombreBar) {
+		this.nombreBar = nombreBar;
+	}
 }

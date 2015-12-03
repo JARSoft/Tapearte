@@ -2,9 +2,21 @@ package com.jarsoft.user.tapearte.Dominio.Cliente;
 
 public class Tapa {
 
+	private String nombreTapa;
 	private int idTapa;
 	private int idBar;
 	private String descripcion;
+	private float overall;
+	private int codigo;
+
+	public Tapa(String nombreTapa, int idTapa, int idBar, String descripcion, float overall, int codigo) {
+		this.nombreTapa = nombreTapa;
+		this.idTapa = idTapa;
+		this.idBar = idBar;
+		this.descripcion = descripcion;
+		this.overall = overall;
+		this.codigo = codigo;
+	}
 
 	public int getIdTapa() {
 		return this.idTapa;
@@ -16,6 +28,10 @@ public class Tapa {
 
 	public String getDescripcion() {
 		return this.descripcion;
+	}
+
+	public float getOverall() {
+		return this.overall;
 	}
 
 	/**
@@ -42,4 +58,23 @@ public class Tapa {
 		this.descripcion = descripcion;
 	}
 
+	public String getNombreTapa() {
+		return nombreTapa;
+	}
+
+	public void setNombreTapa(String nombreTapa) {
+		this.nombreTapa = nombreTapa;
+	}
+
+	public void setOverall(float overall) {
+		this.overall = overall;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 }

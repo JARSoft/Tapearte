@@ -1,14 +1,21 @@
 package com.jarsoft.user.tapearte.Dominio.Cliente;
 
+import com.jarsoft.user.tapearte.Comunicacion.SocketMovil;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class GestorConsultarTapas {
 
 	/**
 	 * 
 	 * @param b
 	 */
-	public boolean consultarTapas(Bar b) {
-		// TODO - implement GestorConsultarTapas.consultarTapas
-		throw new UnsupportedOperationException();
+	private static int STATIC_TAPAS_CHECKER = 4;
+
+	public ArrayList<Tapa> consultarTapas(Bar b) {
+		return (ArrayList<Tapa>) SocketMovil.realizarPeticion(b, STATIC_TAPAS_CHECKER);
 	}
+
 
 }

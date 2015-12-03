@@ -17,14 +17,9 @@ public class MainActivityTapearte extends Activity {
         setContentView(R.layout.activity_tapearte);
 
         if (null == savedInstanceState) {
+            finish();
             startActivity(new Intent(this, IU_Movil.class));
         }
-//        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
-//        String[] items = new String[]{"Registrarse", "Login", "Ofertas"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-//        dropdown.setAdapter(adapter);
-
-
 
     }
 

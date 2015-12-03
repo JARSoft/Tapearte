@@ -9,8 +9,7 @@ public class GestorAutenticarMovil {
 	 * @param u
 	 */
 	public boolean autenticar(Usuario u) {
-		System.out.println("GestorAutenticarMovil: " + SocketMovil.realizarPeticion(u, 0));
-		return true;
+		return (boolean)SocketMovil.realizarPeticion(u, 0);
 	}
 
 }

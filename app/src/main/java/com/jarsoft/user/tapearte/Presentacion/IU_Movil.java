@@ -20,6 +20,7 @@ public class IU_Movil extends Activity implements View.OnClickListener{
 
     private Button opciones, votar;
     private TextView userID;
+    private static String userText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,6 @@ public class IU_Movil extends Activity implements View.OnClickListener{
 
         switch (view.getId()) {
             case R.id.Votar: {
-                System.out.println("Menu_Votar");
-
 /*cosas de cliente*/
 //                //prueba de componentes
 //                ArrayList<String> componentes= new ArrayList<String>();
@@ -70,6 +69,7 @@ public class IU_Movil extends Activity implements View.OnClickListener{
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.registrarse:
+                                startActivity(new Intent(IU_Movil.this, Menu_Registrarse.class));
                                 return true;
                             case R.id.iniciar_sesion:
                                 Intent i = new Intent(IU_Movil.this, Menu_IniciarSesion.class);
@@ -96,14 +96,17 @@ public class IU_Movil extends Activity implements View.OnClickListener{
 
         if (requestCode == 2) {
             if(resultCode == Activity.RESULT_OK){
-                userID.setText(data.getStringExtra("usuario"), TextView.BufferType.EDITABLE);
-                userID.setVisibility(View.VISIBLE);
-                userID.setTextColor(Color.CYAN);
+                finish();
+                startActivity(new Intent(this, Tabs.class));
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
         }
+    }
+
+    public String getUserID(){
+        return userText;
     }
 
 }

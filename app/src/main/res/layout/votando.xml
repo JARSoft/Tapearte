@@ -23,7 +23,7 @@
         android:layout_alignStart="@+id/puntuar"
         android:layout_marginBottom="106dp"
         android:layout_alignEnd="@+id/puntuar"
-        android:inputType="none" />
+        android:inputType="number" />
 
     <TextView
         android:layout_width="wrap_content"

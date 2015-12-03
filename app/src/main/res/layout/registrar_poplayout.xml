@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Usuario"
+        android:id="@+id/Usuario"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Password"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Contraseña"
+        android:id="@+id/Password"
+        android:layout_above="@+id/textPassword"
+        android:layout_toStartOf="@+id/textPassword"
+        android:layout_marginBottom="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textUsuario"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/Usuario"
+        android:layout_alignEnd="@+id/textPassword"
+        android:layout_alignStart="@+id/textPassword" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/textPassword"
+        android:layout_above="@+id/OK"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        android:id="@+id/OK"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textEmail"
+        android:layout_marginBottom="46dp"
+        android:layout_above="@+id/Password"
+        android:layout_alignStart="@+id/textUsuario"
+        android:layout_alignEnd="@+id/textUsuario" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Email"
+        android:id="@+id/Email"
+        android:layout_above="@+id/textEmail"
+        android:layout_alignStart="@+id/Usuario"
+        android:layout_marginBottom="38dp" />
+
+</RelativeLayout>
