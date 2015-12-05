@@ -11,7 +11,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.jarsoft.user.tapearte.Dominio.Cliente.GestorClienteMovil;
 import com.jarsoft.user.tapearte.R;
@@ -37,8 +36,8 @@ public class Menu_IniciarSesion extends Activity{
 
         getWindow().setLayout((int) (width * .8), (int) (heigth * .6));
 
-        final EditText usuario = (EditText)this.findViewById(R.id.textUsuario);
-        final EditText password = (EditText)this.findViewById(R.id.textPassword);
+        final EditText usuario = (EditText)this.findViewById(R.id.textNombre);
+        final EditText password = (EditText)this.findViewById(R.id.textBar);
 
         usuario.addTextChangedListener(new TextWatcher() {
 
@@ -72,9 +71,15 @@ public class Menu_IniciarSesion extends Activity{
             public void onClick(View v) {
                 if (!pass.equals("-1") && !user.equals("-1")) {
                     GestorClienteMovil gestorClienteMovil = new GestorClienteMovil();
-                    if(gestorClienteMovil.autenticar(user, pass)){
+                    if(gestorClienteMovil.autenticar(user, pass)==0){//cliente
                         Intent returnIntent = new Intent();
-                        returnIntent.putExtra("usuario", user);
+                        returnIntent.putExtra("usuario", "cliente");
+                        setResult(Activity.RESULT_OK, returnIntent);
+                        finish();
+                    }
+                    else if(gestorClienteMovil.autenticar(user, pass)==1){//bar
+                        Intent returnIntent = new Intent();
+                        returnIntent.putExtra("usuario", "propietario");
                         setResult(Activity.RESULT_OK, returnIntent);
                         finish();
                     }

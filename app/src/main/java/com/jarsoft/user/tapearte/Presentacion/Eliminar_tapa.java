@@ -9,21 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.jarsoft.user.tapearte.Dominio.Cliente.Bar;
+import com.jarsoft.user.tapearte.Dominio.Cliente.GestorCargarTapas;
 import com.jarsoft.user.tapearte.Dominio.Cliente.GestorClienteMovil;
+import com.jarsoft.user.tapearte.Dominio.Cliente.GestorConsultarBares;
+import com.jarsoft.user.tapearte.Dominio.Cliente.Tapa;
 import com.jarsoft.user.tapearte.R;
 
-/**
- * Created by user on 02/12/2015.
- */
-public class Menu_Registrarse extends Activity {
-    private String user = "-1";
-    private String pass = "-1";
-    private String mail = "-1";
+import java.util.ArrayList;
 
-    @Override
+/**
+ * Created by user on 04/12/2015.
+ */
+
+public class Eliminar_tapa extends Activity {
+
+    private int idtapa = -1, idbar = -1;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registrar_poplayout);
+        setContentView(R.layout.eliminar_tapa_layout);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -33,50 +38,34 @@ public class Menu_Registrarse extends Activity {
 
         getWindow().setLayout((int) (width * .8), (int) (heigth * .6));
 
-        final EditText usuario = (EditText) this.findViewById(R.id.textNombre);
-        final EditText email = (EditText) this.findViewById(R.id.textEmail);
-        final EditText password = (EditText) this.findViewById(R.id.textPassword);
+        final EditText identificador = (EditText) this.findViewById(R.id.textIdentificador);
+        final EditText bar = (EditText) this.findViewById(R.id.textBar);
 
-        usuario.addTextChangedListener(new TextWatcher() {
+        identificador.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-                user = usuario.getText().toString();
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!identificador.getText().toString().equals(""))
+                    idtapa = Integer.parseInt(identificador.getText().toString());
             }
         });
 
-        email.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mail = email.getText().toString();
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        password.addTextChangedListener(new TextWatcher() {
+        bar.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-                pass = password.getText().toString();
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!bar.getText().toString().equals(""))
+                    idbar = Integer.parseInt(bar.getText().toString());
             }
         });
 
@@ -84,17 +73,16 @@ public class Menu_Registrarse extends Activity {
 
         OK.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (!pass.equals("-1") && !user.equals("-1") && !mail.equals("-1")) {
+                if (idtapa != -1 && idbar != -1) {
                     GestorClienteMovil gestorClienteMovil = new GestorClienteMovil();
-                    gestorClienteMovil.registrarse(user, pass, mail);
-//                    Intent returnIntent = new Intent();
-//                    returnIntent.putExtra("usuario", user);
-//                    setResult(Activity.RESULT_OK, returnIntent);
+//                    GestorCargarTapas gestorCargarTapas = new GestorCargarTapas();
+//                    ArrayList<Tapa> tapas = gestorCargarTapas.consultarTapas();
+
+                    Tapa tapa = new Tapa(null, idtapa, idbar, null, -1, -1);
+                    gestorClienteMovil.eliminarTapa(tapa);
                     finish();
                 }
             }
         });
-
     }
-
 }

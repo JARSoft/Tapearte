@@ -4,12 +4,13 @@ import com.jarsoft.user.tapearte.Comunicacion.SocketMovil;
 
 public class GestorAutenticarMovil {
 
+	private static int STATIC_LOGIN_PARAMETER = 0;
 	/**
 	 * 
 	 * @param u
 	 */
-	public boolean autenticar(Usuario u) {
-		return (boolean)SocketMovil.realizarPeticion(u, 0);
+	public int autenticar(Usuario u) {
+		return (int)SocketMovil.realizarPeticion(u, STATIC_LOGIN_PARAMETER);
 	}
 
 }

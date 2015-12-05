@@ -1,7 +1,5 @@
 package com.jarsoft.user.tapearte.Dominio.Cliente;
 
-import com.jarsoft.user.tapearte.Comunicacion.SocketMovil;
-
 import java.util.ArrayList;
 
 public class GestorClienteMovil {
@@ -11,7 +9,7 @@ public class GestorClienteMovil {
 	 * @param usuario
 	 * @param password
 	 */
-	public boolean autenticar(String usuario, String password) {
+	public int autenticar(String usuario, String password) {
 		GestorAutenticarMovil gestorAutenticarMovil = new GestorAutenticarMovil();
 		Usuario user = new Usuario(usuario,password);
 		return gestorAutenticarMovil.autenticar(user);
@@ -57,15 +55,14 @@ public class GestorClienteMovil {
 
 	}
 
-	/**
-	 * 
-	 * @param idBar
-	 * @param idTapa
-	 * @param comentario
-	 */
-	public String comentar(int idBar, int idTapa, String comentario) {
-		// TODO - implement GestorClienteMovil.comentar
-		throw new UnsupportedOperationException();
+	public boolean anadirTapa(Tapa tapa){
+        GestorAnadirTapa gestorAnadirTapa = new GestorAnadirTapa();
+        return gestorAnadirTapa.anadirTapa(tapa);
 	}
+
+    public boolean eliminarTapa(Tapa tapa){
+        GestorEliminarTapa gestorEliminarTapa = new GestorEliminarTapa();
+        return gestorEliminarTapa.eliminarTapa(tapa);
+    }
 
 }

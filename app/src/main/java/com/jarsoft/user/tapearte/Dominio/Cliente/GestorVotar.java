@@ -4,7 +4,7 @@ import com.jarsoft.user.tapearte.Comunicacion.SocketMovil;
 
 public class GestorVotar {
 
-	private static int STATIC_PUNTUAR_TAPA = 71;
+	private static int STATIC_PUNTUAR_TAPA = 7;
 	/**
 	 * 
 	 * @param t

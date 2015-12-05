@@ -16,16 +16,16 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
                 return new FragmentVotar();
             case 1:
                 return new FragmentBuscarTapas();
-            case 2:
-                return new FragmentBuscarBar();
+//            case 2:
+//                return new FragmentBuscarBar();
             default:
                 break;
         }
-        return new FragmentBuscarBar();
+        return null;
     }
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return 3;
+        return 2;
     }
 }

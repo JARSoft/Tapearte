@@ -1,6 +1,8 @@
 package com.jarsoft.user.tapearte.Presentacion;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.ThemedSpinnerAdapter;
@@ -69,6 +71,21 @@ public class Menu_MostrarTapas extends Activity {
                 for(int j =0; j<tapas.size();j++){
                     if(tapas.get(j).getNombreTapa()== adapterView.getItemAtPosition(i)) {
 
+                        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(Menu_MostrarTapas.this);
+                        dialogo1.setTitle(tapas.get(j).getNombreTapa());
+                        if(tapas.get(j).getOverall()==0)
+                            dialogo1.setMessage(tapas.get(j).getDescripcion() + "" +
+                                    "\nAun no ha sido puntuada");
+                        else
+                            dialogo1.setMessage(tapas.get(j).getDescripcion() + "" +
+                                    "\nPuntuacion de los usuarios: " + tapas.get(j).getOverall());
+
+                        dialogo1.setCancelable(false);
+                        dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                            }
+                        });
+                        dialogo1.show();
                     }
 //                        tapas_consultables = gestorClienteMovil.consultarTapas(bares[i]);
 ////                        tapas_consultables = gestorConsultarTapas.consultarTapas(bares[i]);

@@ -11,8 +11,8 @@ import java.util.Arrays;
 public class GestorConsultarBares {
     private static int STATIC_BAR_CHECKER = 4;
 
-    public Bar[] consultarBares() {
+    public ArrayList<Bar> consultarBares() {
         // TODO - implement GestorConsultarTapas.consultarTapas
-        return (Bar[])SocketMovil.realizarPeticion(STATIC_BAR_CHECKER);
+        return (ArrayList<Bar>)SocketMovil.realizarPeticion(STATIC_BAR_CHECKER);
     }
 }

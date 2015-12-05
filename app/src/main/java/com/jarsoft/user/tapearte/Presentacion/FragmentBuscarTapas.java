@@ -27,7 +27,7 @@ public class FragmentBuscarTapas extends Fragment implements View.OnClickListene
 
     private ListView lv;
     private SearchView sv;
-    private Bar[] bares = cargarBares();
+    private ArrayList<Bar> bares = cargarBares();
     private String[] nombres_bares = cargarNombresBares(bares);
     private static ArrayList<Tapa> tapas_consultables;
 
@@ -64,9 +64,9 @@ public class FragmentBuscarTapas extends Fragment implements View.OnClickListene
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                for(int i =0; i<bares.length;i++){
-                    if(bares[i].getNombreBar().equals(arg0.getItemAtPosition(position))) {
-                        tapas_consultables = gestorClienteMovil.consultarTapas(bares[i]);
+                for(int i =0; i<bares.size();i++){
+                    if(bares.get(i).getNombreBar().equals(arg0.getItemAtPosition(position))) {
+                        tapas_consultables = gestorClienteMovil.consultarTapas(bares.get(i));
 //                        tapas_consultables = gestorConsultarTapas.consultarTapas(bares[i]);
                         //Pasamos las tapas al activity que las muestra
 //                        Intent intent = new Intent(getActivity(), Menu_MostrarTapas.class);
@@ -99,15 +99,15 @@ public class FragmentBuscarTapas extends Fragment implements View.OnClickListene
 //        }
     }
 
-    private Bar[] cargarBares() {
+    private ArrayList<Bar> cargarBares() {
         GestorConsultarBares cb = new GestorConsultarBares();
         return cb.consultarBares();
     }
 
-    private String[] cargarNombresBares(Bar[] bares) {
-        String[] nombres = new String[bares.length];
-        for(int i = 0;i<bares.length;i++){
-            nombres[i]=bares[i].getNombreBar();
+    private String[] cargarNombresBares(ArrayList<Bar> bares) {
+        String[] nombres = new String[bares.size()];
+        for(int i = 0;i<bares.size();i++){
+            nombres[i]=bares.get(i).getNombreBar();
         }
         return nombres;
     }

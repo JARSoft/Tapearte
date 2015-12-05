@@ -58,21 +58,6 @@ public class Menu_Votar extends Activity implements View.OnClickListener {
         introducirCodigo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                try {
-
-//                    System.out.print("est0 es "+a);
-//                } catch (java.lang.NumberFormatException e) {
-//                    AlertDialog.Builder dialogo1 = new AlertDialog.Builder(Menu_Votar.this);
-//                    dialogo1.setTitle("Ha ocurrido un error");
-//                    dialogo1.setMessage("Los codigos estan formados solamente como numeros enteros");
-//                    dialogo1.setCancelable(false);
-//                    dialogo1.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialogo1, int id) {
-//                            introducirCodigo.setText(null);
-//                        }
-//                    });
-//                    dialogo1.show();
-//                }
 
             }
 

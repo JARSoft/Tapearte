@@ -31,7 +31,7 @@ public class Tabs extends FragmentActivity implements ActionBar.TabListener{
         actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionbar.addTab(actionbar.newTab().setText("Votar").setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText("Buscar Tapas").setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText("Buscar Bar").setTabListener(this));
+//        actionbar.addTab(actionbar.newTab().setText("Buscar Bar").setTabListener(this));
         viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {

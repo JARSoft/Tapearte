@@ -2,7 +2,6 @@ package com.jarsoft.user.tapearte.Presentacion;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,7 @@ import com.jarsoft.user.tapearte.R;
 /**
  * Created by user on 29/11/2015.
  */
-public class IU_Movil extends Activity implements View.OnClickListener{
+public class IU_Movil extends Activity implements View.OnClickListener {
 
     private Button opciones, votar;
     private TextView userID;
@@ -55,16 +54,15 @@ public class IU_Movil extends Activity implements View.OnClickListener{
 //                SocketMovil.realizarPeticion(componentes, 0);
 //                System.out.println("Exito!");
 
-               startActivity(new Intent(this, Menu_Votar.class));
+                startActivity(new Intent(this, Menu_Votar.class));
 //                getFragmentManager().beginTransaction()
 //                        .replace(R.id.container, Menu_Votar.newInstance())
 //                        .commit();
                 break;
             }
-            case R.id.Opciones:{
-                System.out.println("Mostrar opciones");
+            case R.id.Opciones: {
                 PopupMenu popupMenu = new PopupMenu(this, view);
-                popupMenu.setOnMenuItemClickListener( new PopupMenu.OnMenuItemClickListener(){
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
@@ -74,10 +72,8 @@ public class IU_Movil extends Activity implements View.OnClickListener{
                             case R.id.iniciar_sesion:
                                 Intent i = new Intent(IU_Movil.this, Menu_IniciarSesion.class);
                                 startActivityForResult(i, 2);
-
                                 return true;
                             case R.id.otra_cosa:
-
                                 return true;
                         }
                         return false;
@@ -95,17 +91,20 @@ public class IU_Movil extends Activity implements View.OnClickListener{
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == 2) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
+                if (data.getStringExtra("usuario").equals("cliente"))
+                    startActivity(new Intent(this, Tabs.class));
+                else
+                    startActivity(new Intent(this, IU_Propietario.class));
                 finish();
-                startActivity(new Intent(this, Tabs.class));
+
             }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
+//            if (resultCode == Activity.RESULT_CANCELED) {
+//            }
         }
     }
 
-    public String getUserID(){
+    public String getUserID() {
         return userText;
     }
 

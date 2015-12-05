@@ -8,10 +8,10 @@ public class GestorRegistrar {
 	 * 
 	 * @param u
 	 */
-	private static int STATIC_USER_REGISTER = 5;
+	private static int STATIC_USER_REGISTER = 6;
 
 	public boolean registrar(Usuario u) {
-		return (boolean)SocketMovil.realizarPeticion(u, 5);
+		return (boolean)SocketMovil.realizarPeticion(u, STATIC_USER_REGISTER);
 	}
 
 }

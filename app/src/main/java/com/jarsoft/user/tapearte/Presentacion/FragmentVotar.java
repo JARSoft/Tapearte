@@ -45,9 +45,6 @@ public class FragmentVotar extends Fragment implements View.OnClickListener{
 //                        .replace(R.id.container, Menu_Votar.newInstance())
 //                        .commit();
                 break;
-            case R.id.cerrar_sesion:
-
-                break;
             default:
                 break;
         }
